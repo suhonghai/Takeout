@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import $ from "jquery";
 import "./Order.css";
+import "./Delivered.css";
 import List from "./../components/List"
 import {
   NavLink
@@ -28,10 +29,10 @@ class Order extends Component{
                   <span className="info">
                       {this.state.zhuce}
                   </span>
-                  <a className="go" href={this.state.route}>
-                      <em className="icon"></em>
-                      <em className="text">{this.state.name}</em>
-                  </a>
+                  <NavLink to={this.state.route} className="go" href="#">
+                        <em className="icon"></em>
+                        <em className="text">{this.state.name}</em>
+                  </NavLink>
               </div>
           <ul className="list" style={{"overflow":"auto","height":"534px"}}>
             {arr}

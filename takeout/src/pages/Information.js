@@ -19,6 +19,7 @@ class Information extends Component{
 	render(){
 		return(
 				<div className="App1">
+				
 					<header id="header">外卖调度系统</header>
 					<div id="content">
 				       	{ /*登录地址*/}
@@ -44,7 +45,7 @@ class Information extends Component{
 				            <a className="button collect" href="/user/collectlist.html">工资</a>
 				            
 				        </div>
-				        <a className="logout" href="/order" onClick={this.handlere}>退出登录</a>
+				        <NavLink to="/order" className="logout" href="#" onClick={this.handlere}>退出登录</NavLink>
 	            </div>
 
 					

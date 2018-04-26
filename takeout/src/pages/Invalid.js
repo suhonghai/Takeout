@@ -28,10 +28,10 @@ class Order extends Component{
                   <span className="info">
                       {this.state.zhuce}
                   </span>
-                  <a className="go" href={this.state.route}>
-                      <em className="icon"></em>
-                      <em className="text">{this.state.name}</em>
-                  </a>
+                    <NavLink className="go" to={this.state.route} href="#">
+                        <em className="icon"></em>
+                        <em className="text">{this.state.name}</em>
+                    </NavLink>
               </div>
           <ul className="list" style={{"overflow":"auto","height":"534px"}}>
             {arr}

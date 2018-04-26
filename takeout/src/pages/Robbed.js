@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import $ from "jquery";
 import "./Order.css";
+import "./Delivered.css";
 import List from "./../components/List";
 import img from "../img/hint.png";
 import {
@@ -30,10 +31,12 @@ class Order extends Component{
 			            <span className="info">
 			                {this.state.zhuce}
 			            </span>
-			            <a className="go" href={this.state.route}>
-			                <em className="icon"></em>
-			                <em className="text">{this.state.name}</em>
-			            </a>
+			           
+				            <NavLink to={this.state.route} className="go" href="#">
+				                <em className="icon"></em>
+				                <em className="text">{this.state.name}</em>
+				            </NavLink>
+			           
 			        </div>
 			        <img src={img} style={{"width":"100%","height":"20%","display":this.state.disc,position:"absolute"}}/>
 					<ul className="list" style={{"overflow":"auto","height":"534px"}}>

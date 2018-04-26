@@ -3,9 +3,11 @@ import axios from "axios";
 import $ from "jquery";
 import "./Order.css";
 import List from "./../components/List"
+
 import {
   NavLink
 } from 'react-router-dom'
+
 class Order extends Component{
 	constructor(){
 		super()
@@ -14,7 +16,8 @@ class Order extends Component{
 			zhuce:"快速注册",
 			name:"去登陆",
 			route:"/login",
-			rob:"马上抢"
+			rob:"马上抢",
+			selectedTab: 'redTab'
 		}
 	}
 	render(){
@@ -28,45 +31,58 @@ class Order extends Component{
 			            <span className="info">
 			                {this.state.zhuce}
 			            </span>
-			            <a className="go" href={this.state.route}>
-			                <em className="icon"></em>
-			                <em className="text">{this.state.name}</em>
-			            </a>
+			           
+				            <NavLink to={this.state.route} className="go" href="#">
+				                <em className="icon"></em>
+				                <em className="text">{this.state.name}</em>
+			            	</NavLink>
 			        </div>
-					<ul className="list" style={{"overflow":"auto","height":"534px"}}>
+					<ul className="list">
 						{arr}
 					</ul>
 
 					
 			    	{/*路由的切换，模板切换（to和replace->不留历史记录），js切换*/}
 			        <footer id="footer">
+		
 			        	<div className="footer-tab-custom selected">
 				        	<span className="iconfont icon-dingdan selected"></span>
 				        	<span className="text">
 				        		<NavLink activeClassName="link_active" to="order">订单</NavLink>
 				        	</span>
 			        	</div>
+			        
+			        
 			        	<div className="footer-tab-search">
 				        	<span className="iconfont icon-qianggou"></span>
 				        	<span className="text">
 				        		<NavLink activeClassName="link_active" to="/rob">已抢</NavLink>
 				        	</span>
 			        	</div>
+			        
+			        	
 			        	<div className="footer-tab-mine">
 				        	<span className="iconfont icon-shandiansongda"></span>
 				        	<span className="text">
 				        		<NavLink activeClassName="link_active" to="/delivered">已送达</NavLink>
 				        	</span>
 			        	</div>
+			        	
+			        	
 			        	<div className="footer-tab-mine">
 				        	<span className="iconfont icon-yishixiao1" style={{"fontSize":"12px"}}></span>
 				        	<span className="text">
 				        		<NavLink activeClassName="link_active" to="/invalid">已失效</NavLink>
 				        	</span>
 			        	</div>
+			        	
 			        </footer>
 				</div>
 			)
+	}
+	componentWillUnmount(){
+		// location.reload(true);
+		// history.go(0)
 	}
 	componentDidMount (){
 		let _this = this;

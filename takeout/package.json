@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd-mobile": "^2.1.8",
     "axios": "^0.18.0",
     "jquery": "^3.3.1",
     "react": "^16.3.1",
@@ -17,5 +18,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://www.suhhai.cn"
+  "proxy": "http://www.suhhai.cn",
+  "devDependencies": {
+    "history": "^4.7.2",
+    "hoist-non-react-statics": "^2.5.0",
+    "node-sass": "^4.8.3",
+    "sass-loader": "^7.0.1"
+  }
 }

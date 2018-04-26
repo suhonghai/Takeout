@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Login.css';
+import './regist.scss';
 import axios from "axios";
 import $ from "jquery";
 import {
@@ -25,34 +25,37 @@ class Regist extends Component{
 	}
 	render(){
 		return(
-			<div className="container cleafix">
-    <section className="form_container active" data-view="codeLogin">
-        <header className="form_header"><h2>注册账号</h2><a href="/login" className="brother_link">登录</a></header>
-        <form className="form_body form_register">
-            <div className="input_label phone_wrapper">
-                <input type="text" placeholder="请输入手机号"  className="input_text phone_input" onBlur={this.handleinput} />
-            </div>
-            <div className="input_label phone_wrapper">
-                <input type="text" placeholder="请输入姓名" className="input_text phone_input" onBlur={this.handleinputname} />
+    <section className="reg_form">
+        <div className="reg_form_header">
+            <h2>注册账号</h2>
+         
+            <NavLink to="/login" href="#" className="reg_login">登录</NavLink>
+       
+        </div>
+        <form className="reg_form_body">
+            <div className="input_label">
+                <input type="text" placeholder="请输入手机号"  className="input_text" onBlur={this.handleinput} />
             </div>
             <div className="input_label">
-                <input type="text" placeholder="请输入密码" className="input_text pcode_input" onBlur={this.handleinputpwd}/>  
+                <input type="text" placeholder="请输入姓名" className="input_text" onBlur={this.handleinputname} />
             </div>
-            <div className="input_label clearfix">
-                <input type="text" className="input_text vcode_input" placeholder={this.state.placeholder3} />
-                <input type="button" className="input_text vcode_link" value="获取验证码" placeholder="获取验证码" />
+            <div className="input_label">
+                <input type="password" placeholder="请输入密码" className="input_text " onBlur={this.handleinputpwd}/>  
             </div>
-            <div className="register_agreement" style={{"color":"#00b38a"}}>
+            <div className="input_label input_link">
+                <input type="text" className=" vcode_link" placeholder="请输入收到的验证码" />
+                <input type="button" className=" vcode_link vcode_link1" value="获取验证码" placeholder="获取验证码" />
+            </div>
+            <div className="register_tips" style={{"color":"#00b38a"}}>
                 {this.state.tips}
             </div>
-            <div className="input_label btn_group">
+            <div className="reg_submit">
                 <input type="submit" className="submit_btn" value="注册" onClick={this.handleregist}/>
             </div>
             
             <div className="register_agreement">注册代表你已同意<a href="javascript:void(0);" target="_blank">《外卖用户协议》</a></div>
         </form>
     </section>
-</div>
 			)
 	}
   //处理手机号不能为空
@@ -153,8 +156,9 @@ class Regist extends Component{
            $.post("/php/register.php",{"phone":phone,"firstname":username,"password":pwd},function(res){
                 console.log(res);
                 if(res.res_code ==0){
+                  console.log(res.res_body.firstname)
                     localStorage.setItem('username', res.res_body.firstname);
-                    _this.props.history.replace('/order');
+                    // _this.props.history.replace('/rob');
                   }else{
                        _this.setState({
                           tips:"用户名已存在",

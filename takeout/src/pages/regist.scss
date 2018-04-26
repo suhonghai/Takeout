@@ -1,0 +1,83 @@
+html{
+	font-size:65.5%;
+}
+.reg_form{
+	width: 100%;
+	padding: 2.8635rem;
+	box-sizing: border-box;
+	.reg_form_header{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 2.5rem;
+		h2{
+			font-size: 2.333rem;
+			color: #333;
+	    	font-weight: 400;
+		}
+		a{
+			font-size: 2rem;
+			text-decoration: none;
+			color: #00b38a;
+		}
+	}
+	.reg_form_body{
+		display: flex;
+		flex-direction: column;
+		.input_label{
+			font-size: 2.014rem;
+			padding: 11.178px 0;
+			border-bottom: 1px solid #E8E9EB;
+			.input_text{
+				width: 100%;
+				font-size: 1.5014rem;
+				outline: none;
+				border: none;	
+			}
+		}
+		.login_input1{
+			height: 4rem;
+			font-size: 1.8014rem;
+			color: #ccc;
+		}
+		.reg_submit{
+			
+		    .submit_btn{
+		    	width: 100%;
+		    height: 4rem;
+		    border-radius: 3px;
+		    background-color: #00b38a;
+		    color: #fff;
+		    border: none;
+		    outline: none;
+		    }
+		}
+		.register_agreement{
+			margin-top: 5px;
+			text-align: center;
+			font-size: 14px;
+			a{
+				text-decoration: none;
+				font-size: 14px;
+				color:black;
+			}
+		}
+		.register_tips{
+			height: 3rem;
+			line-height: 3rem;
+			font-size: 1.5014rem;
+		}
+		.input_link{
+			display: flex;
+			justify-content: space-between;
+			.vcode_link{
+				border: none;
+				outline: none;
+			}
+			.vcode_link1{
+				height: 2.5rem
+			}
+		}
+
+	}
+}

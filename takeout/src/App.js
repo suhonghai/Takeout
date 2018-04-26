@@ -41,6 +41,10 @@ const Invali = Loadable({
       loader: () => import('./pages/Invalid'),//异步加载的组件
       loading: () => <div>Loading...</div> //加载的过程中使用那个主见
     });
+const Detail = Loadable({
+      loader: () => import('./components/detail'),//异步加载的组件
+      loading: () => <div>Loading...</div> //加载的过程中使用那个主见
+    });
 class App extends Component {
   render() {
     return (
@@ -55,7 +59,8 @@ class App extends Component {
               <Route path="/regist" component={Regist}></Route>
               <Route path="/delivered" component={Deliver}></Route>
               <Route path="/invalid" component={Invali}></Route>
-			        <Route path="/information" component={Information}></Route>
+              <Route path="/information" component={Information}></Route>
+			        <Route path="/ditu" component={Detail}></Route>
 			        <Redirect path="/" to="/order" exact></Redirect>
           		<Route render={()=>{return <div>  404 ！</div>}} />
 		        </Switch>

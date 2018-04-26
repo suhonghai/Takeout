@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Login.css';
+import './login.scss';
 import axios from "axios";
 import $ from "jquery";
 import {
@@ -18,31 +18,34 @@ class Login extends Component{
     this.handlesub = this.handlesub.bind(this);
   }
   render(){
+
     return(
-        <div className="container">
-          <section className="form_container active">
-            <header className="form_header"><h2>登录系统</h2><a href="/Regist" className="brother_link">注册</a></header>
-            <form className="form_body form_password" method="post">
-              <div className="input_label">
-                <input type="text" placeholder="请输入已验证的手机号" className="input_text user_input" onBlur={this.handleusername}/>
-              </div>
-              <div className="input_label">
-                <input type="password" className="input_text password_input" placeholder="请输入密码" onBlur={this.handlepwd}/>
-              </div>
-              <div className="input_label">
-                {this.state.msg}
-              </div>
-              <div className="input_label btn_group">
-                <input type="submit" className="submit_btn" value="登录" onClick={this.handlesub}/>
-              </div>
-            </form>
-            <footer className="form_footer">
-            </footer>
+        
+          <section className="login_form">
+                <div className="login_header">
+                    <h2>登录系统</h2>
+                    <NavLink to="Regist" href="#" className="login_regist">注册</NavLink>
+                </div>
+                <form className="login_form_body" method="post">
+                    <div className="login_input">
+                      <input type="text" placeholder="请输入已验证的手机号" className="login_input_text" onBlur={this.handleusername}/>
+                    </div>
+                    <div className="login_input">
+                      <input type="password" className="login_input_text" placeholder="请输入密码" onBlur={this.handlepwd}/>
+                    </div>
+                    <div className="login_input1">
+                      {this.state.msg}
+                    </div>
+                    <div className="login_sub">
+                      <input type="submit" className="login_btn" value="登录" onClick={this.handlesub}/>
+                    </div>
+                </form>
           </section>
-        </div>
       )
   }
-
+  ComponentWillMount(){
+    console.log(1)
+  }
   handleusername(e){
     this.setState({
       username:e.target.value
@@ -83,7 +86,7 @@ class Login extends Component{
         let data = JSON.parse(res);
         if(JSON.parse(res).res_code ==0){
           localStorage.setItem('username', data.res_body.firstname);
-          _this.props.history.replace("./order");
+          _this.props.history.replace("./rob");
         }
         else{
          _this.setState({
